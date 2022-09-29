@@ -1,6 +1,7 @@
 FROM golang:1.14-alpine as build
 RUN apk add --no-cache git
 WORKDIR /src
+RUN go mod init golang
 RUN go get github.com/sirupsen/logrus
 RUN go get github.com/streadway/amqp
 COPY consumer.go /src
